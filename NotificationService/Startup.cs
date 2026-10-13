@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NotificationService.Providers;
 
 namespace NotificationService
 {
@@ -26,6 +27,10 @@ namespace NotificationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton<IMessageProvider, EmailMessageProvider>();
+            services.AddSingleton<IMessageProvider, SmsMessageProvider>();
+            services.AddSingleton<IMessageProviderFactory, MessageProviderFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
