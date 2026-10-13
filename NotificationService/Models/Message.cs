@@ -34,5 +34,15 @@ namespace NotificationService.Models
         /// Содержимое сообщения
         /// </summary>
         public string Content { get; set; }
+
+        /// <summary>
+        /// Канал доставки сообщения
+        /// </summary>
+        public NotificationChannel Channel { get; set; }
+
+        /// <summary>
+        /// Адрес получателя (e-mail, номер телефона и т.п. — в зависимости от канала)
+        /// </summary>
+        public string Recipient { get; set; }
     }
 }
